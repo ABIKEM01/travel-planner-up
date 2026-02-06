@@ -4,6 +4,12 @@ export default defineConfig({
   root: 'src',
   build: {
     outDir: '../dist',
-    emptyOutDir: true
-  }
+    emptyOutDir: true,
+    rollupOptions: {
+      input: {
+        main: 'src/index.html',
+        city: 'src/city.html',
+      },
+    },
+  },
 });
