@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <h1>Favorites</h1>
+  <div id="favorites" class="card-container"></div>
+
+  <script type="module">
+    import { getFavorites } from "../js/storage/favorites.js";
+
+    const favs = getFavorites();
+    const container = document.getElementById("favorites");
+
+    favs.forEach(f => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `<h3>${f.name}</h3>`;
+      container.appendChild(card);
+    });
+  </script>
+</body>
+</html>
