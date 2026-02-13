@@ -2,7 +2,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   background: #f5f5f5;
-  padding-bottom: 80px; /* Add padding to prevent content from being hidden under fixed footer */
+  padding-bottom: 80px; 
 }
 
 header {
@@ -28,10 +28,10 @@ input, button {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 15px;
   padding: 20px;
-  margin-bottom: 20px; /* Add margin to prevent content from touching footer */
+  margin-bottom: 20px; 
 }
 
-/* UI Cards */
+
 .card {
   background: white;
   border-radius: 8px;
@@ -44,7 +44,7 @@ input, button {
   transform: translateY(-5px);
 }
 
-/* Spinner animation */
+
 .spinner {
   border: 6px solid #eee;
   border-top: 6px solid #4DA8DA;
@@ -96,7 +96,7 @@ body {
   text-align: center;
   padding: 20px;
   
-  /* Fixed position styles */
+ 
   position: fixed;
   bottom: 0;
   left: 0;
@@ -104,9 +104,9 @@ body {
   z-index: 100;
 }
 
-/* Remove the flexbox layout since we're using fixed positioning */
+
 html, body {
-  height: auto; /* Change from 100% to auto */
+  height: auto; 
   margin: 0;
 }
 
@@ -114,28 +114,91 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Remove or comment out the flexbox styles */
-/*
-main {
-  flex: 1;
-}
-*/
+
 
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
 
-/* Responsive */
+/* ===== Card Fade In Animation ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.city-card,
+.attraction-card {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* ===== Card Hover Lift ===== */
+.city-card,
+.attraction-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.city-card:hover,
+.attraction-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+/* ===== Image Zoom on Hover ===== */
+.card-image {
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  transition: transform 0.4s ease;
+}
+
+.card-image:hover img {
+  transform: scale(1.1);
+}
+
+/* ===== Button Click Effect ===== */
+button {
+  transition: transform 0.15s ease, background 0.3s ease;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 6px solid #eee;
+  border-top-color: #3498db;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 40px auto;
+}
+
+
+
 @media (max-width: 600px) {
   header { flex-direction: column; text-align: center; }
   
-  /* Adjust footer padding for mobile if needed */
+
   .footer {
     padding: 15px;
   }
   
-  /* Adjust body padding for mobile */
+
   body {
     padding-bottom: 70px;
   }
