@@ -7,18 +7,23 @@
   <h1>Favorites</h1>
   <div id="favorites" class="card-container"></div>
 
-  <script type="module">
-    import { getFavorites } from "../js/storage/favorites.js";
+<script type="module">
+  import { getFavorites } from "./js/storage/favorites.js";
 
-    const favs = getFavorites();
-    const container = document.getElementById("favorites");
+  const favs = getFavorites();
+  const container = document.getElementById("favorites");
 
+  if (!favs.length) {
+    container.innerHTML = "<p>No favorites yet.</p>";
+  } else {
     favs.forEach(f => {
       const card = document.createElement("div");
       card.className = "card";
       card.innerHTML = `<h3>${f.name}</h3>`;
       container.appendChild(card);
     });
-  </script>
+  }
+</script>
+
 </body>
 </html>
