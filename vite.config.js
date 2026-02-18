@@ -9,7 +9,7 @@ export default defineConfig({
       input: {
         main: 'src/index.html',
         city: 'src/city.html',
-        favourites: 'src/favourites.html',
+        favourites: 'src/favorites.html',
       },
     },
   },
